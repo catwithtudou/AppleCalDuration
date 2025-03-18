@@ -25,9 +25,20 @@ on formatDuration(durationInMinutes)
     if timeFormat is "minutes" or (timeFormat is "auto" and durationInMinutes ≤ hourThreshold) then
         return durationInMinutes & "min"
     else
-        set hoursValue to durationInMinutes / 60
-        set roundedHours to round (hoursValue * 10) / 10 -- 保留一位小数
-        return roundedHours & "h"
+        -- 计算小时值(准确值)
+        set hoursExact to durationInMinutes / 60
+
+        -- 手动计算一位小数的结果
+        set hoursInteger to durationInMinutes div 60
+        set minutesRemainder to durationInMinutes mod 60
+        set decimalPart to (minutesRemainder / 60 * 10) as integer
+
+        -- 构建最终文本
+        if decimalPart = 0 then
+            return hoursInteger & ".0h"
+        else
+            return hoursInteger & "." & decimalPart & "h"
+        end if
     end if
 end formatDuration
 
