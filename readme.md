@@ -9,7 +9,8 @@
 
 This AppleScript automatically adds duration labels to calendar events. It scans through your personal calendars, identifies events for the current day that don't have time markings, and appends the event duration to the end of the event title.
 
-![](https://img.zhengyua.cn/blog/202503190935427.png)
+<img src="https://img.zhengyua.cn/blog/202503190935427.png" alt="Image" style="height: auto; width:200px; object-fit: contain;">
+
 
 For example:
 - "Project Discussion" → "Project Discussion 60min"
